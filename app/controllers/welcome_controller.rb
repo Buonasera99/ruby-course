@@ -7,9 +7,9 @@ class WelcomeController < ApplicationController
   def index
 
     # We will be creating a new student object to use with Register URL form
-    @student = Student.new 
+    @student = Student.new
     @students = Student.all
-    
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @urls }
@@ -30,7 +30,7 @@ class WelcomeController < ApplicationController
         #if params[:url] =~ /^http:\/\/\w+-\w*-\d{4}\.herokuapp.com\/?$/
         # allow custom subdomains
         if params[:url] =~ /^http:\/\/[\w+-.]+\.herokuapp.com\/?$/
-          if @student.save and @student.urls.create!({:name => '',:url => params[:url]}) 
+          if @student.save and @student.urls.create!({:name => '',:url => params[:url]})
             format.html { redirect_to  '/urls', notice: 'Url was successfully created.' }
             format.json { render json: @url, status: :created, location: @url }
           else

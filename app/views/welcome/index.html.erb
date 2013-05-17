@@ -48,9 +48,26 @@
   <div class="twelve columns" style="border:solid 8px #ccc">
     <h2><tt>your output will go here...</tt></h2>
     <h5 style="font-weight: bold">
-      When you are finished this assignment, your app will display links to class Heroku web sites here. 
+      When you are finished this assignment, your app will display links to class Heroku web sites here.
       Go to the <a href="http://polar-journey-7101.herokuapp.com">example</a> to see how your
-      page should behave. 
+      page should behave.
     </h5>
+    <h3>Previous visitors urls</h3>
+    <table>
+      <tr>
+        <th>Course</th>
+        <th>Student</th>
+        <th>Url</th>
+      </tr>
+      <% @students.each do |s| %>
+        <% s.urls.each do |u| %>
+          <tr>
+            <td><%= s.course %></td>
+            <td><%= s.name %></td>
+            <td><a href="<%= u.url %>" title="<%= s.name %>"><%= u.url %></a></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </table>
   </div>
 </div>
