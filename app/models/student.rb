@@ -13,5 +13,5 @@ class Student < ActiveRecord::Base
 	"nmassenk", "osantana", "sbadami", "scasill4", "schambon",
 	"sgermann", "smcmill5", "tlee185", "vshut", "wlove3", "wwu89"
 	]
-  validates :name, :inclusion => { :in => students }
+  validates :name, :inclusion => { :in => students }
 end
